@@ -8,7 +8,7 @@ phases:
         commands:
             - echo "Build Project"
             - dotnet build Album.Api
-	    - echo "Unit Tests"
-	    - dotnet test
+            - echo "Unit Tests" 
+            - dotnet test
 
 
