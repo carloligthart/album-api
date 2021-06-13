@@ -12,10 +12,12 @@ phases:
             - dotnet test
     post_build:
         commands:
-            - echo "Build docker image"
+            - echo "Build Docker Image"
             - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 470416081643.dkr.ecr.us-east-1.amazonaws.com
             - docker build -t cnsd/album .
+            - echo "Tag Docker Image"
             - docker tag cnsd/album:latest 470416081643.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:$CODEBUILD_BUILD_NUMBER
+            - echo "Push Docker Image to ECR"
             - docker push 470416081643.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:$CODEBUILD_BUILD_NUMBER
 
 
