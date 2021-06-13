@@ -13,4 +13,4 @@ phases:
     post_build:
         commands:
             - echo "Build docker image"
-            - docker build -t cnsd/album . 
+            - docker build -t cnsd_album . 
