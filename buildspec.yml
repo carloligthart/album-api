@@ -13,4 +13,11 @@ phases:
     post_build:
         commands:
             - echo "Build docker image"
-            - docker build -t cnsd_album . 
+            - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 470416081643.dkr.ecr.us-east-1.amazonaws.com
+            - docker build -t cnsd/album .
+            - docker tag cnsd/album:latest 470416081643.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:$CODEBUILD_BUILD_NUMBER
+            - docker push 470416081643.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:$CODEBUILD_BUILD_NUMBER
+
+
+
+
