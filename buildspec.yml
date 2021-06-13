@@ -10,7 +10,7 @@ phases:
             - dotnet build Album.Api
             - echo "Unit Tests" 
             - dotnet test
-     post_build:
+    post_build:
         commands:
             - echo "Build docker image"
             - docker build -t cnsd/album . 
