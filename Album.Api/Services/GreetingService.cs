@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -16,7 +17,7 @@ namespace Album_Api.Services
             {
                 return "Hello World";
             }
-            return "Hello " + name;
+            return "Hello " + name + " from " + Dns.GetHostName();
         }
 
     }

@@ -1,10 +1,11 @@
 using System;
 using Xunit;
 using Album_Api.Services;
+using System.Net;
 
 namespace Album.Api.Tests
 {
- public class UnitTest1
+ public class UnitTests
     {
         private readonly GreetingService greetingService = new GreetingService();
 
@@ -14,7 +15,7 @@ namespace Album.Api.Tests
             string result = greetingService.Greet("John Doe");
             Console.WriteLine(result);
 
-            Assert.Equal("Hello John Doe", result);
+            Assert.Equal("Hello John Doe from " + Dns.GetHostName(), result);
         }
 
         [Theory]
